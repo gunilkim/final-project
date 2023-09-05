@@ -21,8 +21,9 @@
         <div id="header">
             <div class="container">
                 <a href="{% url 'fruit:index'%}">Home</a>
-                <a href="{% url 'fruit:fruitlist'%}">List</a>
+                <a href="{% if user.is_authenticated %}{% url 'fruit:fruitlist' %}{% else %}#{% endif %}">List</a>
             </div>
+        </div>
     </header>
 
 <form class='fruitform' action="{% url 'fruit:upload' %}" method="post" enctype="multipart/form-data">
